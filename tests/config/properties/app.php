@@ -11,5 +11,12 @@
 return [
     'version' => '1.0',
     'autoInitBean' => true,
-    'beanScan' => [],
+    'beanScan' => [
+        'SwoftTest\\Testing'
+    ],
+    'components' => [
+        'custom' => [
+            'Swoftx\\EntityEvent' => '@root/../src'
+        ],
+    ],
 ];

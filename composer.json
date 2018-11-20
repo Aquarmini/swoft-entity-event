@@ -27,13 +27,14 @@
         }
     },
     "require": {
-        "php": ">=7.0",
+        "php": ">=7.1",
         "swoft/framework": "^1.0.24",
         "swoft/db": "^1.0"
     },
     "require-dev": {
         "swoft/swoole-ide-helper": "dev-master",
-        "phpunit/phpunit": "^5.7"
+        "phpunit/phpunit": "^5.7",
+        "phpstan/phpstan": "^0.10.5"
     },
     "extra": {
         "config-plugin": {
