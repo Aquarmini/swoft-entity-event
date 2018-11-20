@@ -32,7 +32,7 @@ install:
   - bash tests/swoole.install.sh
   - phpenv config-rm xdebug.ini
   - phpenv config-add tests/ci.ini
-  - bash tests/_ci/setup_dbs.sh
+  - bash tests/setup_dbs.sh
   - cp -rf $TRAVIS_BUILD_DIR/tests/.env.example $TRAVIS_BUILD_DIR/tests/.env
   # 安装项目
   - composer self-update
