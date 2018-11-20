@@ -20,12 +20,22 @@ use Swoftx\EntityEvent\Event\Updater;
  */
 class Event
 {
+    /**
+     * Create
+     * @author limx
+     * @param Model $model
+     */
     public function create(Model $model)
     {
         $creater = bean(Creater::class);
         return $creater->handle($model);
     }
 
+    /**
+     * Update
+     * @author limx
+     * @param Model $model
+     */
     public function update(Model $model)
     {
         $creater = bean(Updater::class);
