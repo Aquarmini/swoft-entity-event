@@ -9,8 +9,6 @@
  */
 namespace SwoftTest\Cases;
 
-use Swoftx\EntityEvent\Collector\EventListenerCollector;
-
 class ExampleTest extends AbstractTestCase
 {
     public function testExample()

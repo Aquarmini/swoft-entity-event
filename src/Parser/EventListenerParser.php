@@ -1,9 +1,11 @@
 <?php
 /**
- * Swoft Entity Cache
+ * This file is part of Swoft.
  *
- * @author   limx <limingxin@swoft.org>
- * @link     https://github.com/limingxinleo/swoft-aop-cacheable
+ * @link     https://swoft.org
+ * @document https://doc.swoft.org
+ * @contact  limingxin@swoft.org
+ * @license  https://github.com/swoft-cloud/swoft/blob/master/LICENSE
  */
 namespace Swoftx\EntityEvent\Parser;
 
@@ -18,8 +20,7 @@ class EventListenerParser extends AbstractParser
         string $propertyName = '',
         string $methodName = '',
         $propertyValue = null
-    )
-    {
+    ) {
         EventListenerCollector::collect($className, $objectAnnotation, $propertyName, $methodName, $propertyValue);
         return null;
     }

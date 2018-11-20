@@ -10,7 +10,6 @@
 namespace SwoftTest\Cases;
 
 use SwoftTest\Testing\Entity\User;
-use Swoftx\EntityEvent\Collector\EventListenerCollector;
 use Swoftx\EntityEvent\Event;
 
 class EventListenerTest extends AbstractTestCase

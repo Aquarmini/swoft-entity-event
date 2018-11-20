@@ -1,9 +1,11 @@
 <?php
 /**
- * Swoft Entity Cache
+ * This file is part of Swoft.
  *
- * @author   limx <limingxin@swoft.org>
- * @link     https://github.com/limingxinleo/swoft-aop-cacheable
+ * @link     https://swoft.org
+ * @document https://doc.swoft.org
+ * @contact  limingxin@swoft.org
+ * @license  https://github.com/swoft-cloud/swoft/blob/master/LICENSE
  */
 namespace Swoftx\EntityEvent\Collector;
 
@@ -20,8 +22,7 @@ class EventListenerCollector implements CollectorInterface
         string $propertyName = '',
         string $methodName = '',
         $propertyValue = null
-    )
-    {
+    ) {
         if (($objectAnnotation instanceof EventListener) && $name = $objectAnnotation->getName()) {
             $listeners = static::$listeners[$name] ?? [];
             $listeners[] = [
@@ -32,7 +33,9 @@ class EventListenerCollector implements CollectorInterface
             ];
 
             usort($listeners, function ($a, $b) {
-                if ($a['sort'] == $b['sort']) return 0;
+                if ($a['sort'] == $b['sort']) {
+                    return 0;
+                }
                 return $a['sort'] < $b['sort'] ? -1 : 1;
             });
 
