@@ -13,10 +13,8 @@ use Swoft\Db\Model;
 use Swoftx\EntityEvent\Annotation\EventListener;
 use Swoftx\EntityEvent\EventInterface;
 use SwoftTest\Testing\Entity\User;
-use Swoft\Bean\Annotation\Bean;
 
 /**
- * @Bean
  * @EventListener(User::class)
  */
 class UserEventListener implements EventInterface

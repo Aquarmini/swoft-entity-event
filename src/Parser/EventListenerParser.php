@@ -9,6 +9,7 @@
  */
 namespace Swoftx\EntityEvent\Parser;
 
+use Swoft\Bean\Annotation\Scope;
 use Swoft\Bean\Parser\AbstractParser;
 use Swoftx\EntityEvent\Collector\EventListenerCollector;
 
@@ -22,6 +23,7 @@ class EventListenerParser extends AbstractParser
         $propertyValue = null
     ) {
         EventListenerCollector::collect($className, $objectAnnotation, $propertyName, $methodName, $propertyValue);
-        return null;
+
+        return [$className, Scope::SINGLETON, ''];
     }
 }
