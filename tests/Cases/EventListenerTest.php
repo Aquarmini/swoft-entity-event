@@ -14,7 +14,7 @@ use Swoftx\EntityEvent\Event;
 
 class EventListenerTest extends AbstractTestCase
 {
-    public function testCreate()
+    public function testEventListener()
     {
         $uniqid = uniqid();
         $user = new User();
@@ -44,5 +44,41 @@ class EventListenerTest extends AbstractTestCase
         $user = User::findById($id)->getResult();
         $this->assertEquals(3, $user->getRoleId());
         $this->assertNotEquals('1991-05-21', $user->getUpdatedAt());
+
+        for ($i = 0; $i < 2; $i++) {
+            $uniqid = uniqid();
+            $user = new User();
+            $user->setName($uniqid);
+            $user->setRoleId(1);
+
+            $event = bean(Event::class);
+            $id = $event->create($user);
+
+            $this->assertTrue($id > 0);
+
+            if ($id % 2 === 0) {
+                try {
+                    /** @var User $user */
+                    $user = User::findById($id)->getResult();
+                    $event->delete($user);
+                    $this->assertTrue(false);
+                } catch (\Throwable $ex) {
+                    $this->assertEquals('id是偶数，不允许删除!', $ex->getMessage());
+                }
+            } else {
+                /** @var User $user */
+                $user = User::findById($id)->getResult();
+                $rows = $user->delete()->getResult();
+                // $rows = $event->delete($user);
+                $this->assertEquals(1, $rows);
+            }
+        }
+    }
+
+    public function testCoroutine()
+    {
+        go(function () {
+            $this->testEventListener();
+        });
     }
 }

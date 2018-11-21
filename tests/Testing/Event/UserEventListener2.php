@@ -38,4 +38,14 @@ class UserEventListener2 implements EventInterface
     {
         return $model;
     }
+
+    public function beforeDelete(Model $model): Model
+    {
+        return $model;
+    }
+
+    public function afterDelete(Model $model): Model
+    {
+        return $model;
+    }
 }

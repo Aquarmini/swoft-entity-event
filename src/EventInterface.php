@@ -20,4 +20,8 @@ interface EventInterface
     public function beforeUpdate(Model $model): Model;
 
     public function afterUpdate(Model $model): Model;
+
+    public function beforeDelete(Model $model): Model;
+
+    public function afterDelete(Model $model): Model;
 }

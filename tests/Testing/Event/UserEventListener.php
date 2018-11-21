@@ -42,4 +42,21 @@ class UserEventListener implements EventInterface
         $model->setUpdatedAt('1991-05-21');
         return $model;
     }
+
+    /**
+     * @param User $model
+     * @return User
+     */
+    public function beforeDelete(Model $model): Model
+    {
+        if ($model->getId() % 2 === 0) {
+            throw new \Exception('id是偶数，不允许删除!');
+        }
+        return $model;
+    }
+
+    public function afterDelete(Model $model): Model
+    {
+        return $model;
+    }
 }
