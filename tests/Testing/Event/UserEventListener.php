@@ -11,13 +11,14 @@ namespace SwoftTest\Testing\Event;
 
 use Swoft\Db\Model;
 use Swoftx\EntityEvent\Annotation\EventListener;
+use Swoftx\EntityEvent\EntityEventListener;
 use Swoftx\EntityEvent\EventInterface;
 use SwoftTest\Testing\Entity\User;
 
 /**
  * @EventListener(User::class)
  */
-class UserEventListener implements EventInterface
+class UserEventListener extends EntityEventListener implements EventInterface
 {
     public function beforeCreate(Model $model): Model
     {

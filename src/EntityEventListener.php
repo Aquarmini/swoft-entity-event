@@ -1,23 +1,17 @@
 <?php
 /**
- * This file is part of Swoft.
- *
- * @link     https://swoft.org
- * @document https://doc.swoft.org
- * @contact  limingxin@swoft.org
- * @license  https://github.com/swoft-cloud/swoft/blob/master/LICENSE
+ * Created by PhpStorm.
+ * User: limx
+ * Date: 2018/11/24
+ * Time: 4:45 PM
  */
-namespace SwoftTest\Testing\Event;
 
-use Swoftx\EntityEvent\Annotation\EventListener;
-use SwoftTest\Testing\Entity\User;
-use Swoftx\EntityEvent\EventInterface;
+namespace Swoftx\EntityEvent;
+
+
 use Swoft\Db\Model;
 
-/**
- * @EventListener(name=User::class, sort=1)
- */
-class UserEventListener3 implements EventInterface
+abstract class EntityEventListener implements EventInterface
 {
     public function beforeCreate(Model $model): Model
     {
