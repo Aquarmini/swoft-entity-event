@@ -12,13 +12,10 @@ namespace SwoftTest\Testing\Event;
 use Swoftx\EntityEvent\Annotation\EventListener;
 use SwoftTest\Testing\Entity\User;
 use Swoftx\EntityEvent\EntityEventListener;
-use Swoftx\EntityEvent\EventInterface;
-use Swoft\Db\Model;
 
 /**
  * @EventListener(name=User::class, sort=1)
  */
 class UserEvent3Listener extends EntityEventListener
 {
-
 }
