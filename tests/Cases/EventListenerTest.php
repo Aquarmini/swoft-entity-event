@@ -11,6 +11,7 @@ namespace SwoftTest\Cases;
 
 use SwoftTest\Testing\Entity\User;
 use Swoftx\EntityEvent\Event;
+use Swoftx\EntityEvent\Helpers\EntityHelper;
 
 class EventListenerTest extends AbstractTestCase
 {
@@ -80,5 +81,22 @@ class EventListenerTest extends AbstractTestCase
         go(function () {
             $this->testEventListener();
         });
+    }
+
+    public function testEntityHelper()
+    {
+        /** @var User $user */
+        $user = User::findById(1)->getResult();
+        $date = date('Y-m-d H:i:s');
+
+        $res = EntityHelper::getChangedFields($user);
+        $this->assertEquals([], $res);
+
+        $user->setName('Agnes');
+        $user->setRoleId(1);
+        $user->setUpdatedAt($date);
+
+        $res = EntityHelper::getChangedFields($user);
+        $this->assertEquals(['name' => 'Agnes', 'updated_at' => $date], $res);
     }
 }
